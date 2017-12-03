@@ -7,55 +7,54 @@
         mc:Ignorable="d"
         Title="Minecraft Server Checker" Height="596.828" Width="645.891">
     <Window.DataContext>
-        <local:GameApiResult/>
+        <local:GameApiResult />
     </Window.DataContext>
     <Grid>
         <ListBox x:Name="serverListBox" Margin="97,10,10,0" SelectionChanged="serverListBox_SelectionChanged" Height="95" VerticalAlignment="Top">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Description}"/>
+                        <TextBlock Text="{Binding Description}" />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button x:Name="addServerButton" Content="Add Server" HorizontalAlignment="Left" Margin="12,10,0,0" VerticalAlignment="Top" Width="75" Click="addServerButton_Click"/>
-        <Button x:Name="deleteServerButton" Content="Delete Server" HorizontalAlignment="Left" Margin="12,60,0,0" VerticalAlignment="Top" Width="75" Click="deleteServerButton_Click" IsEnabled="False"/>
-        <Label Content="Ping:" HorizontalAlignment="Left" Margin="7,138,0,0" VerticalAlignment="Top"/>
-        <Label Content="Version:" HorizontalAlignment="Left" Margin="7,166,0,0" VerticalAlignment="Top"/>
-        <Label Content="Player Count:" HorizontalAlignment="Left" Margin="7,194,0,0" VerticalAlignment="Top"/>
-        <Label Content="MOTD:" HorizontalAlignment="Left" Margin="7,222,0,0" VerticalAlignment="Top"/>
-        <TextBox Height="23" Margin="97,138,10,0" TextWrapping="Wrap" Text="{Binding ping}" VerticalAlignment="Top" IsReadOnly="True"/>
-        <TextBox Height="23" Margin="97,166,10,0" TextWrapping="Wrap" Text="{Binding version}" VerticalAlignment="Top" IsReadOnly="True"/>
+        <Button x:Name="addServerButton" Content="Add Server" HorizontalAlignment="Left" Margin="12,10,0,0" VerticalAlignment="Top" Width="75" Click="addServerButton_Click" />
+        <Button x:Name="deleteServerButton" Content="Delete Server" HorizontalAlignment="Left" Margin="12,60,0,0" VerticalAlignment="Top" Width="75" Click="deleteServerButton_Click" IsEnabled="False" />
+        <Label Content="Ping:" HorizontalAlignment="Left" Margin="7,138,0,0" VerticalAlignment="Top" />
+        <Label Content="Version:" HorizontalAlignment="Left" Margin="7,166,0,0" VerticalAlignment="Top" />
+        <Label Content="Player Count:" HorizontalAlignment="Left" Margin="7,194,0,0" VerticalAlignment="Top" />
+        <Label Content="MOTD:" HorizontalAlignment="Left" Margin="7,222,0,0" VerticalAlignment="Top" />
+        <TextBox Height="23" Margin="97,138,10,0" TextWrapping="Wrap" Text="{Binding ping}" VerticalAlignment="Top" IsReadOnly="True" />
+        <TextBox Height="23" Margin="97,166,10,0" TextWrapping="Wrap" Text="{Binding version}" VerticalAlignment="Top" IsReadOnly="True" />
         <TextBox Height="23" Margin="97,194,10,0" TextWrapping="Wrap" VerticalAlignment="Top" IsReadOnly="True">
             <TextBox.Text>
                 <MultiBinding StringFormat="{}{0}/{1}">
-                    <Binding Path="players.online"/>
-                    <Binding Path="players.max"/>
+                    <Binding Path="players.online" />
+                    <Binding Path="players.max" />
                 </MultiBinding>
             </TextBox.Text>
         </TextBox>
-        <TextBox AcceptsReturn="True" Height="49" Margin="97,222,10,0" TextWrapping="Wrap" Text="{Binding motds.clean}" VerticalAlignment="Top" IsReadOnly="True"/>
+        <TextBox AcceptsReturn="True" Height="49" Margin="97,222,10,0" TextWrapping="Wrap" Text="{Binding motds.clean}" VerticalAlignment="Top" IsReadOnly="True" />
         <Border BorderBrush="Black" BorderThickness="1" Height="65" Margin="7,313,0,0" Width="65" HorizontalAlignment="Left" VerticalAlignment="Top">
-            <Grid Background="LightGray" >
-                <Image Source="{Binding FaviconImage}"/>
+            <Grid Background="LightGray">
+                <Image Source="{Binding FaviconImage}" />
             </Grid>
         </Border>
-        <Label Content="Image:" HorizontalAlignment="Left" Margin="7,287,0,0" VerticalAlignment="Top"/>
-        <CheckBox Content="Online" IsChecked="{Binding status}" HorizontalAlignment="Left" Margin="97,115,0,0" VerticalAlignment="Top" Width="63" IsEnabled="False"/>
-        <ListBox ItemsSource="{Binding hover}" Margin="97,313,10,9.5">
+        <Label Content="Image:" HorizontalAlignment="Left" Margin="7,287,0,0" VerticalAlignment="Top" />
+        <CheckBox Content="Online" IsChecked="{Binding status}" HorizontalAlignment="Left" Margin="97,115,0,0" VerticalAlignment="Top" Width="63" IsEnabled="False" />
+        <ListBox x:Name="playersListBox" ItemsSource="{Binding hover}" Margin="97,313,10,9.5">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding name}"></TextBlock>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Label Content="Hover Player List:" HorizontalAlignment="Left" Margin="97,287,0,0" VerticalAlignment="Top"/>
+        <Label Content="Hover Player List:" HorizontalAlignment="Left" Margin="97,287,0,0" VerticalAlignment="Top" />
         <Button x:Name="refreshButton" Content="Refresh" HorizontalAlignment="Left" Margin="12,85,0,0" VerticalAlignment="Top" Width="75" Click="refreshButton_Click" IsEnabled="False">
         </Button>
-        <Button x:Name="editButton" Content="Edit Server" HorizontalAlignment="Left" Margin="12,35,0,0" VerticalAlignment="Top" Width="75" Click="editButton_Click" IsEnabled="False"/>
-        <Label Content="Status:" HorizontalAlignment="Left" Margin="7,112,0,0" VerticalAlignment="Top"/>
-        <TextBox Height="23" Margin="160,110,10,0" TextWrapping="Wrap" Text="{Binding error}" VerticalAlignment="Top" IsReadOnly="True"/>
-
+        <Button x:Name="editButton" Content="Edit Server" HorizontalAlignment="Left" Margin="12,35,0,0" VerticalAlignment="Top" Width="75" Click="editButton_Click" IsEnabled="False" />
+        <Label Content="Status:" HorizontalAlignment="Left" Margin="7,112,0,0" VerticalAlignment="Top" />
+        <TextBox Height="23" Margin="160,110,10,0" TextWrapping="Wrap" Text="{Binding error}" VerticalAlignment="Top" IsReadOnly="True" />
     </Grid>
 </Window>

@@ -21,6 +21,9 @@ namespace MinecraftServerList
             _servers = ConfigHelper.LoadConfig();
             serverListBox.ItemsSource = _servers;
             DataContext = Result;
+
+            serverListBox.Items.SortDescriptions.Add(new SortDescription(nameof(Server.Description), ListSortDirection.Ascending));
+            playersListBox.Items.SortDescriptions.Add(new SortDescription(nameof(Hover.name), ListSortDirection.Ascending));
         }
 
         private void addServerButton_Click(object sender, RoutedEventArgs e)
