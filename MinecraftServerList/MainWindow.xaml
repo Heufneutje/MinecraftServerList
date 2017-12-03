@@ -55,7 +55,6 @@
         </Button>
         <Button x:Name="editButton" Content="Edit Server" HorizontalAlignment="Left" Margin="12,35,0,0" VerticalAlignment="Top" Width="75" Click="editButton_Click" IsEnabled="False"/>
         <Label Content="Status:" HorizontalAlignment="Left" Margin="7,112,0,0" VerticalAlignment="Top"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="803,206,-262,0" VerticalAlignment="Top" Width="100"/>
         <TextBox Height="23" Margin="160,110,10,0" TextWrapping="Wrap" Text="{Binding error}" VerticalAlignment="Top" IsReadOnly="True"/>
 
     </Grid>
