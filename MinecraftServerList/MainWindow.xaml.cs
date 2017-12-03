@@ -25,7 +25,7 @@ namespace MinecraftServerList
 
         private void addServerButton_Click(object sender, RoutedEventArgs e)
         {
-            ServerWindow serverWindow = new ServerWindow(new Server());
+            ServerWindow serverWindow = ShowServerWindow(new Server());
             if (serverWindow.ShowDialog() == true)
             {
                 _servers.Add(serverWindow.Server);
@@ -37,7 +37,7 @@ namespace MinecraftServerList
         private void editButton_Click(object sender, RoutedEventArgs e)
         {
             Server server = (Server)serverListBox.SelectedItem;
-            ServerWindow serverWindow = new ServerWindow(new Server(server.Description, server.Address, server.Port));
+            ServerWindow serverWindow = ShowServerWindow(new Server(server.Description, server.Address, server.Port));
             if (serverWindow.ShowDialog() == true)
             {
                 _servers.Insert(_servers.IndexOf(server), serverWindow.Server);
@@ -98,7 +98,7 @@ namespace MinecraftServerList
                 worker.RunWorkerAsync();
             }
         }
-        
+
         private void UpdateContextAndButtonState()
         {
             DataContext = Result;
@@ -107,6 +107,12 @@ namespace MinecraftServerList
             editButton.IsEnabled = editEnabled;
             deleteServerButton.IsEnabled = editEnabled;
             refreshButton.IsEnabled = editEnabled;
+        }
+
+        private ServerWindow ShowServerWindow(Server server)
+        {
+            ServerWindow serverWindow = new ServerWindow(server) { Owner = this };
+            return serverWindow;
         }
     }
 }

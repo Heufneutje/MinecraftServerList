@@ -4,33 +4,33 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MinecraftServerList"
-        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" 
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="Server" Height="159.634" Width="425.349" SourceInitialized="Window_SourceInitialized" ResizeMode="NoResize">
+        Title="Server" Height="165.076" Width="425.349" SourceInitialized="Window_SourceInitialized" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
     <Window.DataContext>
-        <local:Server/>
+        <local:Server />
     </Window.DataContext>
     <Grid>
-        <Label Content="Description:" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" Height="28"/>
-        <Label Content="Server IP/hostname:" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" Height="28"/>
-        <Label Content="Port:" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Height="27"/>
-        <TextBox x:Name="hostnameTextBox" Text="{Binding Address}" Height="23" Margin="131,38,10.5,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="1"/>
-        <xctk:IntegerUpDown Margin="131,66,10.5,0" Height="23" Value="{Binding Port}" VerticalAlignment="Top" TabIndex="2"/>
-        <TextBox x:Name="descriptionTextBox" Height="23" Margin="131,10,10.5,0" TextWrapping="Wrap" Text="{Binding Description}" VerticalAlignment="Top" TabIndex="0"/>
-        <Button x:Name="okButton" Content="OK" Margin="0,0,90.5,10" VerticalAlignment="Bottom" Click="okButton_Click" HorizontalAlignment="Right" Width="75" IsDefault="True" TabIndex="3">
+        <Label Content="Description:" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" Height="28" />
+        <Label Content="Server IP/hostname:" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" Height="28" />
+        <Label Content="Port:" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Height="27" />
+        <TextBox x:Name="hostnameTextBox" Text="{Binding Address}" Height="23" Margin="131,38,10.5,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="1" />
+        <xctk:IntegerUpDown Margin="131,66,10.5,0" Height="23" Value="{Binding Port}" VerticalAlignment="Top" TabIndex="2" />
+        <TextBox x:Name="descriptionTextBox" Height="23" Margin="131,10,10.5,0" TextWrapping="Wrap" Text="{Binding Description}" VerticalAlignment="Top" TabIndex="0" />
+        <Button x:Name="okButton" Content="OK" Margin="0,0,90,10" VerticalAlignment="Bottom" Click="okButton_Click" HorizontalAlignment="Right" Width="75" IsDefault="True" TabIndex="3">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding Text.Length, ElementName=hostnameTextBox, UpdateSourceTrigger=PropertyChanged}" Value="0">
-                            <Setter Property="IsEnabled" Value="False"/>
+                            <Setter Property="IsEnabled" Value="False" />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Text.Length, ElementName=descriptionTextBox, UpdateSourceTrigger=PropertyChanged}" Value="0">
-                            <Setter Property="IsEnabled" Value="False"/>
+                            <Setter Property="IsEnabled" Value="False" />
                         </DataTrigger>
                     </Style.Triggers>
                 </Style>
             </Button.Style>
         </Button>
-        <Button x:Name="cancelButton" Content="Cancel" Margin="0,0,10.5,10" RenderTransformOrigin="0.402,0.452" Click="cancelButton_Click" HorizontalAlignment="Right" Width="75" Height="20" VerticalAlignment="Bottom" IsCancel="True" TabIndex="4"/>
+        <Button x:Name="cancelButton" Content="Cancel" Margin="0,0,11,10" RenderTransformOrigin="0.402,0.452" Click="cancelButton_Click" HorizontalAlignment="Right" Width="74" Height="20" VerticalAlignment="Bottom" IsCancel="True" TabIndex="4" />
     </Grid>
 </Window>
