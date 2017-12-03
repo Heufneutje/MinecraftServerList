@@ -77,7 +77,7 @@ namespace MinecraftServerList
             if (serverListBox.SelectedItem == null)
             {
                 Result = new GameApiResult();
-                DataContext = Result;
+                UpdateContextAndButtonState();
             }
             else
             {
@@ -92,10 +92,21 @@ namespace MinecraftServerList
                 {
                     Result = (GameApiResult)args.Result;
                     DataContext = Result;
+                    UpdateContextAndButtonState();
                     Cursor = Cursors.Arrow;
                 };
                 worker.RunWorkerAsync();
             }
-        }        
+        }
+        
+        private void UpdateContextAndButtonState()
+        {
+            DataContext = Result;
+
+            bool editEnabled = serverListBox.SelectedItem != null;
+            editButton.IsEnabled = editEnabled;
+            deleteServerButton.IsEnabled = editEnabled;
+            refreshButton.IsEnabled = editEnabled;
+        }
     }
 }
