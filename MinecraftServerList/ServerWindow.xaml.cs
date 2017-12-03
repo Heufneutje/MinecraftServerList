@@ -41,7 +41,7 @@ namespace MinecraftServerList
         private void Window_SourceInitialized(object sender, EventArgs e)
         {
             this.HideMinimizeAndMaximizeButtons();
-            hostnameTextBox.Focus();
+            descriptionTextBox.Focus();
         }
     }
 }

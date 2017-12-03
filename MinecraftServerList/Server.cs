@@ -1,28 +1,19 @@
-﻿using Newtonsoft.Json;
-
-namespace MinecraftServerList
+﻿namespace MinecraftServerList
 {
     public class Server
     {
+        public string Description { get; set; }
         public string Address { get; set; }
         public ushort Port { get; set; }
-
-        [JsonIgnore]
-        public string ListFormat
-        {
-            get
-            {
-                return $"{Address}:{Port}";
-            }
-        }
 
         public Server()
         {
             Port = 25565;
         }
 
-        public Server(string address, ushort port)
+        public Server(string description, string address, ushort port)
         {
+            Description = description;
             Address = address;
             Port = port;
         }

@@ -37,7 +37,7 @@ namespace MinecraftServerList
         private void editButton_Click(object sender, RoutedEventArgs e)
         {
             Server server = (Server)serverListBox.SelectedItem;
-            ServerWindow serverWindow = new ServerWindow(new Server(server.Address, server.Port));
+            ServerWindow serverWindow = new ServerWindow(new Server(server.Description, server.Address, server.Port));
             if (serverWindow.ShowDialog() == true)
             {
                 _servers.Insert(_servers.IndexOf(server), serverWindow.Server);
