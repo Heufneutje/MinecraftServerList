@@ -1,10 +1,13 @@
-﻿namespace MinecraftServerList
+﻿using Newtonsoft.Json;
+
+namespace MinecraftServerList
 {
     public class Server
     {
         public string Address { get; set; }
         public ushort Port { get; set; }
 
+        [JsonIgnore]
         public string ListFormat
         {
             get
