@@ -1,0 +1,21 @@
+﻿<Window x:Class="MinecraftServerList.ServerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MinecraftServerList"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" 
+        mc:Ignorable="d"
+        Title="Server" Height="138.832" Width="425.349" SourceInitialized="Window_SourceInitialized">
+    <Window.DataContext>
+        <local:Server/>
+    </Window.DataContext>
+    <Grid>
+        <Label Content="Server IP/hostname:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Port:" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="hostnameTextBox" Text="{Binding Address}" Height="23" Margin="131,10,10.5,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <xctk:IntegerUpDown Margin="131,42,10.5,0" Height="23" Value="{Binding Port}" VerticalAlignment="Top"/>
+        <Button x:Name="okButton" Content="OK" Margin="0,0,90.5,10" VerticalAlignment="Bottom" Click="okButton_Click" HorizontalAlignment="Right" Width="75" IsDefault="True"/>
+        <Button x:Name="cancelButton" Content="Cancel" Margin="0,0,10.5,10" RenderTransformOrigin="0.402,0.452" Click="cancelButton_Click" HorizontalAlignment="Right" Width="75" Height="20" VerticalAlignment="Bottom" IsCancel="True"/>
+    </Grid>
+</Window>
