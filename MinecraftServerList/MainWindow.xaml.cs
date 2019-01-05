@@ -11,7 +11,7 @@ namespace MinecraftServerList
     /// </summary>
     public partial class MainWindow : Window
     {
-        public GameApiResult Result { get; set; }
+        public ServerPingResult Result { get; set; }
 
         private List<Server> _servers;
 
@@ -23,7 +23,7 @@ namespace MinecraftServerList
             DataContext = Result;
 
             serverListBox.Items.SortDescriptions.Add(new SortDescription(nameof(Server.Description), ListSortDirection.Ascending));
-            playersListBox.Items.SortDescriptions.Add(new SortDescription(nameof(Hover.name), ListSortDirection.Ascending));
+            playersListBox.Items.SortDescriptions.Add(new SortDescription(nameof(Player.Name), ListSortDirection.Ascending));
         }
 
         private void addServerButton_Click(object sender, RoutedEventArgs e)
@@ -79,7 +79,7 @@ namespace MinecraftServerList
         {
             if (serverListBox.SelectedItem == null)
             {
-                Result = new GameApiResult();
+                Result = new ServerPingResult();
                 UpdateContextAndButtonState();
             }
             else
@@ -89,11 +89,12 @@ namespace MinecraftServerList
                 BackgroundWorker worker = new BackgroundWorker();
                 worker.DoWork += delegate (object sender, DoWorkEventArgs args)
                 {
-                    args.Result = WebHelper.GetGameApiResult(server);
+                    MinecraftPingRequester pingRequester = new MinecraftPingRequester(server.Address, server.Port);
+                    args.Result = pingRequester.GetServerPingData();
                 };
                 worker.RunWorkerCompleted += delegate (object sender, RunWorkerCompletedEventArgs args)
                 {
-                    Result = (GameApiResult)args.Result;
+                    Result = (ServerPingResult)args.Result;
                     DataContext = Result;
                     UpdateContextAndButtonState();
                     Cursor = Cursors.Arrow;

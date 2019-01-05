@@ -79,12 +79,16 @@
     <Compile Include="ConfigHelper.cs" />
     <Compile Include="GuiHelper.cs" />
     <Compile Include="ImageHelper.cs" />
-    <Compile Include="Result.cs" />
+    <Compile Include="MinecraftPingRequester.cs" />
+    <Compile Include="Objects\Motd.cs" />
+    <Compile Include="Objects\Player.cs" />
+    <Compile Include="Objects\PlayerSample.cs" />
+    <Compile Include="Objects\ServerPingResult.cs" />
+    <Compile Include="Objects\Version.cs" />
     <Compile Include="Server.cs" />
     <Compile Include="ServerWindow.xaml.cs">
       <DependentUpon>ServerWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WebHelper.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
