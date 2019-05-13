@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MinecraftServerList"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="Server" Height="165.076" Width="425.349" SourceInitialized="Window_SourceInitialized" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
+        Title="Server" Height="165.076" Width="425.349" SourceInitialized="Window_SourceInitialized" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" Icon="icon.ico">
     <Window.DataContext>
         <local:Server />
     </Window.DataContext>

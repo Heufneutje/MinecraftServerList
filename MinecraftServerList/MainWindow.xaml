@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MinecraftServerList"
         mc:Ignorable="d"
-        Title="Minecraft Server Checker" Height="596.828" Width="645.891">
+        Title="Minecraft Server Checker" Height="596.828" Width="645.891" Icon="icon.ico">
     <Window.DataContext>
         <local:ServerPingResult />
     </Window.DataContext>
